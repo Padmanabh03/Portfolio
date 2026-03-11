@@ -369,40 +369,42 @@
         </div>
         
         <div class="projects-grid">
-            <!-- Project 1: Multi-View 3D Reconstruction -->
+            <!-- Project 1: 3D Reconstruction from Scratch -->
             <div class="project-card" data-category="3d-vision">
                 <div class="project-header">
                     <div class="project-category">3D Vision</div>
-                    <div class="project-status">Current</div>
+                    <div class="project-status">Completed</div>
                 </div>
-                <h3 class="project-title">Multi-View 3D Reconstruction</h3>
+                <h3 class="project-title">3D Reconstruction from Scratch</h3>
                 <p class="project-description">
-                    Implemented Structure-from-Motion using SIFT for feature extraction on ETH3D dataset. 
-                    Currently developing Multi-View Stereo pipeline with deep learning-based stereo matching for high-fidelity 3D surface reconstruction.
+                    Complete Structure-from-Motion (SfM) + Multi-View Stereo (MVS) pipeline built entirely from first principles — no COLMAP, no ready-made library.
+                    Every algorithm (SIFT, BFMatcher, Essential-matrix decomposition, DLT triangulation, incremental camera registration, Ceres bundle adjustment, OpenMVS densification) implemented and wired together by hand on the ETH3D Courtyard scene.
                 </p>
                 <div class="project-metrics">
                     <div class="metric">
                         <span class="metric-label">Dataset</span>
-                        <span class="metric-value">ETH3D</span>
+                        <span class="metric-value">ETH3D Courtyard</span>
                     </div>
                     <div class="metric">
-                        <span class="metric-label">Method</span>
-                        <span class="metric-value">Structure-from-Motion</span>
+                        <span class="metric-label">Cameras Registered</span>
+                        <span class="metric-value">37 / 38</span>
                     </div>
                     <div class="metric">
-                        <span class="metric-label">Status</span>
-                        <span class="metric-value">March 2025 - Present</span>
+                        <span class="metric-label">Sparse SfM Points</span>
+                        <span class="metric-value">37,226</span>
                     </div>
                 </div>
                 <div class="project-tech">
                     <span class="tech-tag">Python</span>
+                    <span class="tech-tag">C++</span>
                     <span class="tech-tag">OpenCV</span>
-                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">Ceres Solver</span>
+                    <span class="tech-tag">OpenMVS</span>
                     <span class="tech-tag">SIFT</span>
                     <span class="tech-tag">Bundle Adjustment</span>
                 </div>
                 <div class="project-links">
-                    <a href="#" class="project-link github-link">
+                    <a href="https://github.com/Padmanabh03/3d-reconstruction-from-scratch" class="project-link github-link" target="_blank">
                         <span>Source Code</span>
                     </a>
                 </div>
