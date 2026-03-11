@@ -214,14 +214,16 @@
                 <div class="location">Chicago, IL</div>
                 
                 <div class="experience-summary">
-                    <p>Developing production-ready railway track segmentation systems using YOLOv8 and TensorRT optimization. Achieved <strong>28 FPS performance</strong> on edge devices with PyQt5 GUI integration.</p>
+                    <p>Built a YOLOv8 + RF-DETR + XMem tracking pipeline from <strong>50K annotated frames</strong>, maintaining <strong>90%+ rail identity</strong> across junctions with an <strong>80% reduction</strong> in wrong-branch handoffs. Deployed real-time at <strong>3.5 FPS</strong> (PyTorch), with TensorRT optimization projected to reach ~10 FPS.</p>
                 </div>
                 
                 <div class="tech-stack">
                     <span class="tech-item">YOLOv8</span>
+                    <span class="tech-item">RF-DETR</span>
+                    <span class="tech-item">XMem</span>
                     <span class="tech-item">TensorRT</span>
-                    <span class="tech-item">PyQt5</span>
-                    <span class="tech-item">Edge Computing</span>
+                    <span class="tech-item">PyTorch</span>
+                    <span class="tech-item">OpenCV</span>
                 </div>
             </div>
             
@@ -377,21 +379,20 @@
                 </div>
                 <h3 class="project-title">3D Reconstruction from Scratch</h3>
                 <p class="project-description">
-                    Complete Structure-from-Motion (SfM) + Multi-View Stereo (MVS) pipeline built entirely from first principles — no COLMAP, no ready-made library.
-                    Every algorithm (SIFT, BFMatcher, Essential-matrix decomposition, DLT triangulation, incremental camera registration, Ceres bundle adjustment, OpenMVS densification) implemented and wired together by hand on the ETH3D Courtyard scene.
+                    Complete SfM + MVS pipeline built from first principles — no COLMAP, no ready-made library. Implements SIFT, BFMatcher, Essential-matrix decomposition, DLT triangulation, incremental camera registration with Ceres bundle adjustment, and OpenMVS densification on the ETH3D Courtyard scene.
                 </p>
                 <div class="project-metrics">
-                    <div class="metric">
-                        <span class="metric-label">Dataset</span>
-                        <span class="metric-value">ETH3D Courtyard</span>
-                    </div>
                     <div class="metric">
                         <span class="metric-label">Cameras Registered</span>
                         <span class="metric-value">37 / 38</span>
                     </div>
                     <div class="metric">
-                        <span class="metric-label">Sparse SfM Points</span>
-                        <span class="metric-value">37,226</span>
+                        <span class="metric-label">Sparse Points</span>
+                        <span class="metric-value">37226</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Dataset</span>
+                        <span class="metric-value">ETH3D Courtyard</span>
                     </div>
                 </div>
                 <div class="project-tech">
@@ -411,15 +412,14 @@
             </div>
 
             <!-- Project 2: RGViT -->
-            <div class="project-card" data-category="3d-vision">
+            <div class="project-card" data-category="sensor-fusion">
                 <div class="project-header">
-                    <div class="project-category">3D Vision</div>
+                    <div class="project-category">Sensor Fusion</div>
                     <div class="project-status">Completed</div>
                 </div>
                 <h3 class="project-title">Radar-Guided Vision Transformer (RGViT)</h3>
                 <p class="project-description">
-                    Advanced radar-camera fusion model using cross-attention mechanisms for 3D object detection. 
-                    Trained on nuScenes dataset with 16,880 radar-camera pairs, achieving NDS: 27.3% and mAP: 18.9%.
+                    Multi-modal fusion transformer that lets radar guide a Vision Transformer via cross-attention, focusing attention on motion-salient regions while camera features supply rich spatial context. Designed for robust 3D object detection under low-visibility conditions (fog, rain, night) where camera-only systems fail. Trained on nuScenes with 16,880 radar-camera pairs.
                 </p>
                 <div class="project-metrics">
                     <div class="metric">
@@ -456,21 +456,20 @@
                 </div>
                 <h3 class="project-title">RobustTransSeg for Medical Image Segmentation</h3>
                 <p class="project-description">
-                    Hybrid CNN-Transformer architecture for brain tumor segmentation with advanced preprocessing pipeline. 
-                    Achieved Dice score of 0.78 using mixed-precision training and connected component analysis.
+                    Implements and compares two architectures for brain tumor segmentation on BraTS 2020 (369 multi-modal MRI scans): a 3D UNet CNN and a dual-encoder model combining a Swin Transformer path with a CNN path, fused via NFCE blocks. Both trained with combined Dice + Focal loss; the dual-encoder matches CNN performance in significantly fewer epochs.
                 </p>
                 <div class="project-metrics">
                     <div class="metric">
-                        <span class="metric-label">Dice Score</span>
-                        <span class="metric-value">0.78</span>
+                        <span class="metric-label">CNN Dice</span>
+                        <span class="metric-value">0.7864</span>
                     </div>
                     <div class="metric">
-                        <span class="metric-label">Architecture</span>
-                        <span class="metric-value">CNN-Transformer</span>
+                        <span class="metric-label">Dual-Enc Dice</span>
+                        <span class="metric-value">0.7819</span>
                     </div>
                     <div class="metric">
-                        <span class="metric-label">Domain</span>
-                        <span class="metric-value">Brain Tumors</span>
+                        <span class="metric-label">Dataset</span>
+                        <span class="metric-value">BraTS 2020</span>
                     </div>
                 </div>
                 <div class="project-tech">
@@ -481,6 +480,45 @@
                 </div>
                 <div class="project-links">
                     <a href="https://github.com/Padmanabh03/RobustTransSeg" class="project-link github-link" target="_blank">
+                        <span>Source Code</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 4: InspectAI -->
+            <div class="project-card" data-category="industrial">
+                <div class="project-header">
+                    <div class="project-category">Industrial CV</div>
+                    <div class="project-status">Completed</div>
+                </div>
+                <h3 class="project-title">InspectAI — Industrial Visual Inspection System</h3>
+                <p class="project-description">
+                    Production-ready unsupervised anomaly detection system for industrial QA using PatchCore with WideResNet50. Trains on defect-free images only and delivers pixel-level heatmaps via a full-stack FastAPI web application — 99.92% image-level AUROC on MVTec Bottle at ~4.5 img/s inference speed.
+                </p>
+                <div class="project-metrics">
+                    <div class="metric">
+                        <span class="metric-label">Image AUROC</span>
+                        <span class="metric-value">99.92%</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Pixel AUROC</span>
+                        <span class="metric-value">95.52%</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Dataset</span>
+                        <span class="metric-value">MVTec AD</span>
+                    </div>
+                </div>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">PatchCore</span>
+                    <span class="tech-tag">WideResNet50</span>
+                    <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">FAISS</span>
+                    <span class="tech-tag">MVTec AD</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Padmanabh03/Inspect_AI" class="project-link github-link" target="_blank">
                         <span>Source Code</span>
                     </a>
                 </div>
