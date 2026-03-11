@@ -390,19 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cvPipeline.addGlitchEffect(element);
     });
     
-    // Animate metrics when they come into view
-    const metricsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                cvPipeline.animateMetrics();
-                metricsObserver.unobserve(entry.target);
-            }
-        });
-    });
-    
-    document.querySelectorAll('.project-metrics').forEach(metrics => {
-        metricsObserver.observe(metrics);
-    });
+    // Metric values are displayed as static text (no count-up animation)
     
     // Store reference for global access
     window.cvPipeline = cvPipeline;
